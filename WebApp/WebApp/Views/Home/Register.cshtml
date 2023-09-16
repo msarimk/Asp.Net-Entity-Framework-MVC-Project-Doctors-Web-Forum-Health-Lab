@@ -1,0 +1,183 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Health Lab | Register</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="~/Web/images/favicon.ico" type="image/x-icon">
+    <!-- Font-->
+    <link rel="stylesheet" type="text/css" href="~/Content/registerform/css/montserrat-font.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/registerform/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="~/Content/registerform/css/style.css" />
+    <script src="~/Content/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Prevent injection of the specific script
+            $('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert5.js"]').remove();
+            var injectedScript = document.querySelector('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert5.js"]');
+            if (injectedScript) {
+                injectedScript.parentNode.removeChild(injectedScript);
+            }
+        });
+    </script>
+</head>
+<body class="form-v10">
+    <style>
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url("/Content/profilepage/img/preloader.gif") 50% 50% no-repeat #fff;
+            opacity: 1
+        }
+    </style>
+    <script>
+        $(window).on("load", function () {
+            $(".loader").fadeOut("slow");
+        });
+    </script>
+    <div class="loader"></div>
+    <div class="page-content">
+        <div class="form-v10-content">
+            <form class="form-detail" enctype="multipart/form-data" action="~/Home/Register" method="post" id="myform">
+                <div class="form-left">
+                    <h2>General Infomation</h2>
+                    <div class="form-row">
+                        <select required name="title">
+                            <option class="option">Title</option>
+                            <option class="option" value="Businessman">Businessman</option>
+                            <option class="option" value="Reporter">Reporter</option>
+                            <option class="option" value="Doctor">Doctor</option>
+                            <option class="option" value="Engineer">Engineer</option>
+                            <option class="option" value="Journalist">Journalist</option>
+                            <option class="option" value="Lawyer">Lawyer</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <input required type="text" name="firstname" id="firstname" class="input-text" placeholder="First Name" required>
+                        </div>
+
+                        <div class="form-row form-row-2">
+                            <input required type="text" name="lastname" id="lastname" class="input-text" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <select required name="gender">
+                            <option>Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row1">
+                            <select required name="education">
+                                <option>Education</option>
+                                <option value="Matriculation">Matric</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Bachelors">Bachelors</option>
+                                <option value="Masters">Masters</option>
+                                <option value="PHD">PHD</option>
+                                <option value="MBBS">MBBS</option>
+                                <option value="DHMS">DHMS</option>
+                            </select>
+                            <span class="select-btn">
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </span>
+                        </div>
+                        <div class="form-row form-row-2">
+                            <input required type="date" name="DOB" class="input-text" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <style>
+                        .txt::placeholder {
+                            color: white !important;
+                        }
+                    </style>
+                    <div class="form-row">
+                        <textarea class="txt" name="bio" placeholder="Bio Data" style="padding: 5px 5px 5px 5px;color: white;width: 100% !important;border: none !important;background-color: #4835d4;border-radius: 5px;" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <textarea class="txt" name="experience" placeholder="Experience" style="padding: 5px 5px 5px 5px;color: white;width: 100% !important;border: none !important;background-color: #4835d4;border-radius: 5px;" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-right">
+                    <h2>Contact Details</h2>
+                    <div class="form-row">
+                        <input type="text" name="email" class="input-text" required placeholder="Your Email">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="password" class="input-password" required placeholder="Your Password">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="phone" class="phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-row">
+                        <select name="location">
+                            <option>location</option>
+                            <option value="Karachi">Karachi</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Sukkur">Sukkur</option>
+                            <option value="Bahwalpur">Bahwalpur</option>
+                            <option value="Lahore">Lahore</option>
+                            <option value="Islamabad">Islamabad</option>
+                            <option value="Sialkot">Sialkot</option>
+                            <option value="Faisalabad">Faisalabad</option>
+                            <option value="Kohat">Kohat</option>
+                            <option value="Kashmir">Kashmir</option>
+                            <option value="Gilgit">Gilgit</option>
+                            <option value="Peshawar">Peshawar</option>
+                            <option value="Quetta">Quetta</option>
+                            <option value="Khuzdaar">Khuzdaar</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="form-row">
+                        <label style="color: white;">Profile Picture</label>
+                        <input type="file" class="form-control" name="userimg" />
+                        <span class="select-btn">
+                            <!-- <i class="zmdi zmdi-chevron-down"></i> -->
+                        </span>
+                    </div>
+                    <!-- <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <input type="text" name="code" class="code" id="code" placeholder="Code +" required>
+                        </div>
+                        <div class="form-row form-row-2">
+                            <input type="text" name="phone" class="phone" id="phone" placeholder="Phone Number" required>
+                        </div>
+                    </div> -->
+                    <div class="form-checkbox ">
+                        <label class="container">
+                            <p>I do accept the <a href="#" class="text">Terms and Conditions</a> of your site.</p>
+                            <input style="position: relative !important;" type="checkbox" name="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <input type="hidden" name="usertype" value="user" />
+                    <div class="form-row-last">
+                        <input type="submit" name="register" class="register" value="Register Badge">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

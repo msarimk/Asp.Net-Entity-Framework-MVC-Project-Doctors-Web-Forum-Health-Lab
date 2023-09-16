@@ -1,0 +1,544 @@
+﻿@model WebApp.tbl_users
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<!-- index.html  21 Nov 2019 03:44:50 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <link rel="shortcut icon" href="~/Web/images/favicon.ico" type="image/x-icon">
+    <title>Health Lab | @Model.Name</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="~/Content/profilepage/css/app.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/Content/profilepage/css/style.css">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <link rel="stylesheet" href="~/Content/profilepage/css/style.css">
+    <link rel="stylesheet" href="~/Content/profilepage/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="~/Content/profilepage/css/custom.css">
+    @*    <link rel='shortcut icon' type='image/x-icon' href='~/Content/profilepage/img/bnc_cube.png' />*@
+    <!-- font Awosome 5 Link -->
+    <script src="https://kit.fontawesome.com/aceebae6c5.js" crossorigin="anonymous"></script>
+    <script src="~/Content/code.jquery.com_jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Prevent injection of the specific script
+            $('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert5.js"]').remove();
+            var injectedScript = document.querySelector('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert5.js"]');
+            if (injectedScript) {
+                injectedScript.parentNode.removeChild(injectedScript);
+            }
+        });
+    </script>
+</head>
+<body>
+    <style>
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url("/Content/profilepage/img/preloader.gif") 50% 50% no-repeat #fff;
+            opacity: 1
+        }
+    </style>
+    <div class="loader"></div>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <!-- Main Content -->
+            <div style="padding-left:30px !important;padding-top:44px;padding-bottom:44px;" class="main-content">
+                <section class="section">
+                    <div class="section-body">
+                        <div class="row mt-sm-4">
+                            <div class="col-12 col-md-12 col-lg-4">
+                                <div class="card author-box">
+                                    <div class="card-body">
+                                        <div class="author-box-center">
+                                            <img alt="Profile Image" width="100px" height="100px" class="rounded-circle" src="~/UserImages/@Model.User_Image">
+                                            <div class="clearfix"></div>
+                                            <div class="author-box-name mt-1">
+                                                <a>@Model.Name</a>
+                                            </div>
+                                            <div class="author-box-job">@Model.title</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="author-box-description">
+                                                <p>
+                                                    @Model.bio
+                                                </p>
+                                            </div>
+                                            <div class="w-100 d-sm-none"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header pt-4">
+                                        <h4>Personal Details</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="py-4">
+                                            <p class="clearfix">
+                                                <span class="float-left">
+                                                    Birthday
+                                                </span>
+                                                <span class="float-right text-muted">
+                                                    @Model.DOB
+                                                </span>
+                                            </p>
+                                            @if (Session["userid"] != null)
+                                            {
+                                                if (Convert.ToInt32(Session["userid"]) == Model.id)
+                                                {
+                                                    <p class="clearfix">
+                                                        <span class="float-left">
+                                                            Phone
+                                                        </span>
+                                                        <span class="float-right text-muted">
+                                                            @Model.Phone
+                                                        </span>
+                                                    </p>
+                                                }
+                                                else if (Model.isPublicProfile == 0)
+                                                {
+                                                    <p class="clearfix">
+                                                        <span class="float-left">
+                                                            Phone
+                                                        </span>
+                                                        <span class="float-right text-danger">
+                                                            Private Info
+                                                        </span>
+                                                    </p>
+                                                }
+                                                else if (Model.isPublicProfile == 1)
+                                                {
+                                                    <p class="clearfix">
+                                                        <span class="float-left">
+                                                            Phone
+                                                        </span>
+                                                        <span class="float-right text-muted">
+                                                            @Model.Phone
+                                                        </span>
+                                                    </p>
+                                                }
+                                            }
+                                            else if (Session["userid"] == null)
+                                            {
+                                                if (Model.isPublicProfile == 0)
+                                                {
+                                                    <p class="clearfix">
+                                                        <span class="float-left">
+                                                            Phone
+                                                        </span>
+                                                        <span class="float-right text-danger">
+                                                            Private Info
+                                                        </span>
+                                                    </p>
+                                                }
+                                                else if (Model.isPublicProfile == 1)
+                                                {
+                                                    <p class="clearfix">
+                                                        <span class="float-left">
+                                                            Phone
+                                                        </span>
+                                                        <span class="float-right text-muted">
+                                                            @Model.Phone
+                                                        </span>
+                                                    </p>
+                                                }
+                                            }
+                                            <p class="clearfix">
+                                                <span class="float-left">
+                                                    Mail
+                                                </span>
+                                                <span class="float-right text-muted">
+                                                    @Model.Email
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-8">
+                                <div class="card">
+                                    <div class="padding-20">
+                                        <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="home-tab2" data-toggle="tab" href="#about" role="tab"
+                                                   aria-selected="true">About</a>
+                                            </li>
+                                            @if (Convert.ToInt32(Session["userid"]) == Model.id)
+                                            {
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#settings" role="tab"
+                                                       aria-selected="false">Setting</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="profile-tab3" data-toggle="tab" href="#privacy" role="tab"
+                                                       aria-selected="false">Privacy</a>
+                                                </li>
+                                            }
+                                        </ul>
+                                        <div class="tab-content tab-bordered" id="myTab3Content">
+                                            <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="home-tab2">
+                                                <div class="row">
+                                                    <div class="col-md-3 col-6 b-r">
+                                                        <strong>Full Name</strong>
+                                                        <br>
+                                                        <p class="text-muted">@Model.Name</p>
+                                                    </div>
+                                                    @if (Session["userid"] != null)
+                                                    {
+                                                        if (Convert.ToInt32(Session["userid"]) == Model.id)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Mobile</strong>
+                                                                <br>
+                                                                <p class="text-muted">@Model.Phone</p>
+                                                            </div>
+                                                        }
+                                                        else if (Model.isPublicProfile == 0)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Mobile</strong>
+                                                                <br>
+                                                                <p class="text-danger">Private Info</p>
+                                                            </div>
+
+                                                        }
+                                                        else if (Model.isPublicProfile == 1)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Mobile</strong>
+                                                                <br>
+                                                                <p class="text-muted">@Model.Phone</p>
+                                                            </div>
+                                                        }
+                                                    }
+                                                    else if (Session["userid"] == null)
+                                                    {
+                                                        if (Model.isPublicProfile == 0)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Mobile</strong>
+                                                                <br>
+                                                                <p class="text-danger">Private Info</p>
+                                                            </div>
+                                                        }
+                                                        else if (Model.isPublicProfile == 1)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Mobile</strong>
+                                                                <br>
+                                                                <p class="text-muted">@Model.Phone</p>
+                                                            </div>
+
+                                                        }
+                                                    }
+                                                    <div class="col-md-3 col-6 b-r">
+                                                        <strong>Email</strong>
+                                                        <br>
+                                                        <p class="text-muted">@Model.Email</p>
+                                                    </div>
+                                                    @if (Session["userid"] != null)
+                                                    {
+                                                        if (Convert.ToInt32(Session["userid"]) == Model.id)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Location</strong>
+                                                                <br>
+                                                                <p class="text-muted">@Model.location</p>
+                                                            </div>
+                                                        }
+                                                        else if (Model.isPublicProfile == 0)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Location</strong>
+                                                                <br>
+                                                                <p class="text-danger">Private Info</p>
+                                                            </div>
+                                                        }
+                                                        else if (Model.isPublicProfile == 1)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Location</strong>
+                                                                <br>
+                                                                <p class="text-muted">@Model.location</p>
+                                                            </div>
+                                                        }
+                                                    }
+                                                    else if (Session["userid"] == null)
+                                                    {
+                                                        if (Model.isPublicProfile == 0)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Location</strong>
+                                                                <br>
+                                                                <p class="text-danger">Private Info</p>
+                                                            </div>
+                                                        }
+                                                        else if (Model.isPublicProfile == 1)
+                                                        {
+                                                            <div class="col-md-3 col-6">
+                                                                <strong>Location</strong>
+                                                                <br>
+                                                                <p class="text-muted">@Model.location</p>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+                                                <div class="section-title">Education</div>
+                                                <ul>
+                                                    <li>@Model.education</li>
+                                                </ul>
+                                                <div class="section-title">Experience</div>
+                                                <ul>
+                                                    <li>@Model.experience</li>
+                                                </ul>
+                                            </div>
+                                            @if (Convert.ToInt32(Session["userid"]) == Model.id)
+                                            {
+                                                <div class="tab-pane fade " id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                                                    <form method="post" action="~/Home/UserProfile">
+                                                        <div class="card-header">
+                                                            <h4>Edit Profile</h4>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="form-group col-md-6 col-12">
+                                                                    <label>Name</label>
+                                                                    <input required type="text" name="name" class="form-control" value="@Model.Name">
+                                                                    <div class="invalid-feedback">
+                                                                        Name cannot be empty
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-6 col-12">
+                                                                    <label>Email</label>
+                                                                    <input required type="email" name="email" class="form-control" value="@Model.Email">
+                                                                    <div class="invalid-feedback">
+                                                                        Please fill the email
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group col-md-6 col-12">
+                                                                    <label>Password</label>
+                                                                    <input type="password" name="password" class="form-control">
+                                                                    <div class="invalid-feedback">
+                                                                        Please fill the Password
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-6 col-12">
+                                                                    <label>Phone</label>
+                                                                    <input required type="text" name="phone" class="form-control" value="@Model.Phone">
+                                                                    <div class="invalid-feedback">
+                                                                        Phone Required
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group col-md-6 col-12">
+                                                                    <label>Bio</label>
+                                                                    <input required type="text" name="bio" value="@Model.bio" class="form-control">
+                                                                    <div class="invalid-feedback">
+                                                                        Please fill the Password
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-6 col-12">
+                                                                    <label>Experience</label>
+                                                                    <input required type="text" name="experience" value="@Model.experience" class="form-control" value="@Model.Phone">
+                                                                    <div class="invalid-feedback">
+                                                                        Phone Required
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            @*<div class="row">
+                                                                <div class="form-group mb-0 col-12">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input type="checkbox" name="remember" class="custom-control-input" id="newsletter">
+                                                                        <label class="custom-control-label" for="newsletter">Subscribe to newsletter</label>
+                                                                        <div class="text-muted form-text">
+                                                                            You will get new information about products, offers and promotions
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>*@
+                                                        </div>
+                                                        @* These are the feilds which throw back to Database when not updated from this Page *@
+                                                        <input type="hidden" value="@Model.Password" name="dbpass" />
+                                                        <input type="hidden" value="@Model.id" name="dbid" />
+                                                        <input type="hidden" value="@Model.User_Type" name="dbusertype" />
+                                                        <input type="hidden" value="@Model.User_Image" name="dbimg" />
+                                                        <input type="hidden" value="@Model.education" name="dbedu" />
+                                                        <input type="hidden" value="@Model.location" name="dbloc" />
+                                                        <input type="hidden" value="@Model.title" name="dbtitle" />
+                                                        <input type="hidden" value="@Model.DOB" name="dbdob" />
+                                                        <input type="hidden" value="@Model.Gender" name="dbgender" />
+                                                        <input type="hidden" value="@Model.userCount" name="dbcount" />
+                                                        <input type="hidden" value="@Model.isPublicProfile" name="dbstatus" />
+                                                        <div class="card-footer text-right">
+                                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                /*Privacy Tab*/
+                                        <div class="tab-pane fade " id="privacy" role="tabpanel" aria-labelledby="profile-tab3">
+                                            <div class="card-header">
+                                                <h4>Edit Profile Privacy</h4>
+                                            </div>
+                                            <div style="padding-left:15px !important;" >
+                                                @if (Model.isPublicProfile == 0)
+                                                {
+                                                    <label>Switched : <span  >Private</span></label>
+                                                }
+                                                else if (Model.isPublicProfile == 1)
+                                                {
+                                                    <label>Switched : <span >Public</span></label>
+                                                }
+                                            </div>
+                                            <div>
+                                                @if (Model.isPublicProfile == 0)
+                                                {
+                                                    <div class="col-1 w-100">
+                                                        <form method="post" action="~/Privacy/Public/@Session["userid"]">
+                                                            <input class="w-100" type="hidden" value="1" />
+                                                            <button type="submit" class="btn btn-primary">Public</button>
+                                                        </form>
+                                                    </div>
+                                                }
+                                                else if (Model.isPublicProfile == 1)
+                                                {
+                                                    <div class="col-1 w-100 mt-2">
+                                                        <form method="post" action="~/Privacy/Private/@Session["userid"]">
+                                                            <input class="w-100" type="hidden" value="0" />
+                                                            <button type="submit" class="btn btn-primary">Private</button>
+                                                        </form>
+                                                    </div>
+                                                }
+
+                                            </div>
+                                        </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="settingSidebar">
+                    <a href="javascript:void(0)" class="settingPanelToggle">
+                        <i class="fa fa-spin fa-cog"></i>
+                    </a>
+                    <div class="settingSidebar-body ps-container ps-theme-default">
+                        <div class=" fade show active">
+                            <div class="setting-panel-header">
+                                Setting Panel
+                            </div>
+                            <div class="p-15 border-bottom">
+                                <h6 class="font-medium m-b-10">Select Layout</h6>
+                                <div class="selectgroup layout-color w-50">
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout" checked>
+                                        <span class="selectgroup-button">Light</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                                        <span class="selectgroup-button">Dark</span>
+                                    </label>
+                                </div>
+                            </div>
+@*                            <div class="p-15 border-bottom">
+                                <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                                <div class="selectgroup selectgroup-pills sidebar-color">
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                                        <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                              data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked>
+                                        <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                              data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                                    </label>
+                                </div>
+                            </div>*@
+                            <div class="p-15 border-bottom">
+                                <h6 class="font-medium m-b-10">Color Theme</h6>
+                                <div class="theme-setting-options">
+                                    <ul class="choose-theme list-unstyled mb-0">
+                                        <li title="white" class="active">
+                                            <div class="white"></div>
+                                        </li>
+                                        <li title="cyan">
+                                            <div class="cyan"></div>
+                                        </li>
+                                        <li title="black">
+                                            <div class="black"></div>
+                                        </li>
+                                        <li title="purple">
+                                            <div class="purple"></div>
+                                        </li>
+                                        <li title="orange">
+                                            <div class="orange"></div>
+                                        </li>
+                                        <li title="green">
+                                            <div class="green"></div>
+                                        </li>
+                                        <li title="red">
+                                            <div class="red"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+@*                            <div class="p-15 border-bottom">
+                                <div class="theme-setting-options">
+                                    <label class="m-b-0">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                               id="mini_sidebar_setting">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="control-label p-l-10">Mini Sidebar</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="p-15 border-bottom">
+                                <div class="theme-setting-options">
+                                    <label class="m-b-0">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                               id="sticky_header_setting">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="control-label p-l-10">Sticky Header</span>
+                                    </label>
+                                </div>
+                            </div>*@
+                            <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                                <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                                    <i class="fas fa-undo"></i> Restore Default
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="main-footer mt-0 pl-0 pr-0 pb-3 justify-content-center d-flex">
+                <div class="footer-left">
+                    <a href="https://www.healthlab.somee.com" target="_blank" class="font-14 font-weight-bold align-center">
+                        Copyright &copy; Health Lab 2023
+                    </a>
+                </div>
+                <div class="footer-right">
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- General JS Scripts -->
+    <script src="~/Content/profilepage/js/app.min.js"></script>
+    <!-- Template JS File -->
+    <script src="~/Content/profilepage/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="User_Type" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="User_Image" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="education" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="bio" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="experience" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="location" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_address">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Icons" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Titles" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="AnchorLinks" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_appointment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_doctors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Degree" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Timing" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Profile" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_gallery">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titles" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Images" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_hospitalDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_queries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="queries" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="user_image" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_replies" Relationship="Self.FK_tbl_replies_tbl_queries1" FromRole="tbl_queries" ToRole="tbl_replies" />
+  </EntityType>
+  <EntityType Name="tbl_replies">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="q_id" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="replies" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="user_image" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_queries" Relationship="Self.FK_tbl_replies_tbl_queries1" FromRole="tbl_replies" ToRole="tbl_queries" />
+  </EntityType>
+  <EntityType Name="tbl_services">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titles" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Descriptions" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Icons" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_slider">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titles" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Sub_Titles" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Button_Titles" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Images" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_subscriptions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="User_Type" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="User_Image" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="userCount" Type="Int32" />
+    <Property Name="DOB" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="education" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="bio" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="experience" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="location" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+    <Property Name="isPublicProfile" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_tbl_replies_tbl_queries1">
+    <End Role="tbl_queries" Type="Self.tbl_queries" Multiplicity="0..1" />
+    <End Role="tbl_replies" Type="Self.tbl_replies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_queries">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_replies">
+        <PropertyRef Name="q_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="hospitalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_address" EntityType="Self.tbl_address" />
+    <EntitySet Name="tbl_appointment" EntityType="Self.tbl_appointment" />
+    <EntitySet Name="tbl_contact" EntityType="Self.tbl_contact" />
+    <EntitySet Name="tbl_doctors" EntityType="Self.tbl_doctors" />
+    <EntitySet Name="tbl_gallery" EntityType="Self.tbl_gallery" />
+    <EntitySet Name="tbl_hospitalDetail" EntityType="Self.tbl_hospitalDetail" />
+    <EntitySet Name="tbl_queries" EntityType="Self.tbl_queries" />
+    <EntitySet Name="tbl_replies" EntityType="Self.tbl_replies" />
+    <EntitySet Name="tbl_services" EntityType="Self.tbl_services" />
+    <EntitySet Name="tbl_slider" EntityType="Self.tbl_slider" />
+    <EntitySet Name="tbl_subscriptions" EntityType="Self.tbl_subscriptions" />
+    <EntitySet Name="tbl_users" EntityType="Self.tbl_users" />
+    <AssociationSet Name="FK_tbl_replies_tbl_queries1" Association="Self.FK_tbl_replies_tbl_queries1">
+      <End Role="tbl_queries" EntitySet="tbl_queries" />
+      <End Role="tbl_replies" EntitySet="tbl_replies" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

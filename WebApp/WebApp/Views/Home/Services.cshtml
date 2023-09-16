@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebApp.tbl_services>
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/FrontHeaderFooter.cshtml";
+}
+<!-- Start Services -->
+<div id="services" class="services-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-box">
+                    <h2>Services</h2>
+                    @*<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="owl-carousel owl-theme">
+
+                    @foreach (var data in Model)
+                    {
+
+                    <div class="item">
+                        <div class="serviceBox">
+                            <div class="service-icon"><i class="fa @data.Icons" aria-hidden="true"></i></div>
+                            <h3 class="title">@data.Titles</h3>
+                            <p class="description">@data.Descriptions</p>
+                            <a href="#" class="new-btn-d br-2">Read More</a>
+                        </div>
+                    </div>
+
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Services -->

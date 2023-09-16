@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebApp.tbl_services>
+
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/HeaderFooter.cshtml";
+}
+
+<div class="container">
+    <h2>Services</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "AddServices")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descriptions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Icons)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titles)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descriptions)
+                </td>
+                <td>
+                    <i class="fa @Html.DisplayFor(modelItem => item.Icons)" aria-hidden="true"></i>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UpdateServices", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "DeleteServices", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

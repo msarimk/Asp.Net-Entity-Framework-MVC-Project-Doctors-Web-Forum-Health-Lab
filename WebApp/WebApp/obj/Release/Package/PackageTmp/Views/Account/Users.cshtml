@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebApp.tbl_users>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/HeaderFooter.cshtml";
+}
+
+<div class="container">
+
+    <h2>Users</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            @*        <th>
+                    @Html.DisplayNameFor(model => model.User_Type)
+                </th>*@
+            <th class="text-center">
+                User Profiles
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.User_Type == "user")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    @*        <td>
+                            @Html.DisplayFor(modelItem => item.User_Type)
+                        </td>*@
+                    <td class="d-flex justify-content-center">
+                        <img width="50" alt="user image" src="~/UserImages/@Html.DisplayFor(modelItem => item.User_Image)" />
+                        
+                    </td>
+                    @*        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>*@
+                    @*        <td>
+                            @Html.DisplayFor(modelItem => item.userCount)
+                        </td>*@
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteUser", new { id = item.id })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+
+</div>

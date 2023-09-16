@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hospitalModelStoreContainer" CdmEntityContainer="hospitalEntities">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="hospitalModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+          <ScalarProperty Name="User_Image" ColumnName="User_Image" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="education" ColumnName="education" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="hospitalModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_address">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_address">
+        <MappingFragment StoreEntitySet="tbl_address">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Icons" ColumnName="Icons" />
+          <ScalarProperty Name="Titles" ColumnName="Titles" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="AnchorLinks" ColumnName="AnchorLinks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_appointment">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_appointment">
+        <MappingFragment StoreEntitySet="tbl_appointment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_contact">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_contact">
+        <MappingFragment StoreEntitySet="tbl_contact">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_doctors">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_doctors">
+        <MappingFragment StoreEntitySet="tbl_doctors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="Timing" ColumnName="Timing" />
+          <ScalarProperty Name="Profile" ColumnName="Profile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_gallery">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_gallery">
+        <MappingFragment StoreEntitySet="tbl_gallery">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Titles" ColumnName="Titles" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_hospitalDetail">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_hospitalDetail">
+        <MappingFragment StoreEntitySet="tbl_hospitalDetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_queries">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_queries">
+        <MappingFragment StoreEntitySet="tbl_queries">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="queries" ColumnName="queries" />
+          <ScalarProperty Name="user_image" ColumnName="user_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_replies">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_replies">
+        <MappingFragment StoreEntitySet="tbl_replies">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="q_id" ColumnName="q_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="replies" ColumnName="replies" />
+          <ScalarProperty Name="user_image" ColumnName="user_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_services">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_services">
+        <MappingFragment StoreEntitySet="tbl_services">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Titles" ColumnName="Titles" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Icons" ColumnName="Icons" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_slider">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_slider">
+        <MappingFragment StoreEntitySet="tbl_slider">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Titles" ColumnName="Titles" />
+          <ScalarProperty Name="Sub_Titles" ColumnName="Sub_Titles" />
+          <ScalarProperty Name="Button_Titles" ColumnName="Button_Titles" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_subscriptions">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_subscriptions">
+        <MappingFragment StoreEntitySet="tbl_subscriptions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_users">
+      <EntityTypeMapping TypeName="hospitalModel.tbl_users">
+        <MappingFragment StoreEntitySet="tbl_users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+          <ScalarProperty Name="User_Image" ColumnName="User_Image" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="userCount" ColumnName="userCount" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="education" ColumnName="education" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="isPublicProfile" ColumnName="isPublicProfile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,33 @@
+﻿@model WebApp.tbl_services
+@{
+    ViewBag.Title = "UpdateServices";
+    Layout = "~/Views/HeaderFooter.cshtml";
+}
+<!-- Begin Page Content -->
+<div class="container">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add Services</h1>
+    </div>
+
+    <form action="~/Account/UpdateServices" method="post" enctype="multipart/form-data">
+        <div class="form-group col-xxl-5 col-xl-5 col-lg-5 col-md-5   mx-auto">
+
+            <input type="hidden" name="id" value="@Model.id" />
+
+            <label for="exampleInputEmail1">Title</label>
+            <input name="title" value="@Model.Titles" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter title">
+
+            <label for="exampleInputPassword1" class="mt-3">Description</label>
+            <input name="description" value="@Model.Descriptions" type="text" class="form-control" placeholder="Enter Description">
+
+            <label for="exampleInputPassword1" class="mt-3">Icon</label>
+            <input name="icon" value="@Model.Icons" type="text" class="form-control" placeholder="Insert Icon">
+
+
+            <button type="submit" name="submit" class="btn btn-primary mt-5">Submit</button>
+
+        </div>
+    </form>
+
+</div>
+<!-- End of Main Content -->

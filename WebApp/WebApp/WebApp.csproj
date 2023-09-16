@@ -1,0 +1,750 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{97B8BF37-C840-4F65-AC21-AC0D013EDACE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApp</RootNamespace>
+    <AssemblyName>WebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44327</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\css\sb-admin-2.css" />
+    <Content Include="Admin\css\sb-admin-2.min.css" />
+    <Content Include="Admin\img\undraw_posting_photo.svg" />
+    <Content Include="Admin\img\undraw_profile.svg" />
+    <Content Include="Admin\img\undraw_profile_1.svg" />
+    <Content Include="Admin\img\undraw_profile_2.svg" />
+    <Content Include="Admin\img\undraw_profile_3.svg" />
+    <Content Include="Admin\img\undraw_rocket.svg" />
+    <Content Include="Admin\js\demo\chart-area-demo.js" />
+    <Content Include="Admin\js\demo\chart-bar-demo.js" />
+    <Content Include="Admin\js\demo\chart-pie-demo.js" />
+    <Content Include="Admin\js\demo\datatables-demo.js" />
+    <Content Include="Admin\js\sb-admin-2.js" />
+    <Content Include="Admin\js\sb-admin-2.min.js" />
+    <Content Include="Admin\LoginForm\css\main.css" />
+    <Content Include="Admin\LoginForm\css\util.css" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\OFL.txt" />
+    <Content Include="Admin\LoginForm\images\icons\favicon.ico" />
+    <Content Include="Admin\LoginForm\images\img-01.png" />
+    <Content Include="Admin\LoginForm\js\main.js" />
+    <Content Include="Admin\LoginForm\register.html" />
+    <Content Include="Admin\LoginForm\vendor\animate\animate.css" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\js\popper.js" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Admin\LoginForm\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Admin\LoginForm\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Admin\LoginForm\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Admin\LoginForm\vendor\select2\select2.css" />
+    <Content Include="Admin\LoginForm\vendor\select2\select2.js" />
+    <Content Include="Admin\LoginForm\vendor\select2\select2.min.css" />
+    <Content Include="Admin\LoginForm\vendor\select2\select2.min.js" />
+    <Content Include="Admin\LoginForm\vendor\tilt\tilt.jquery.min.js" />
+    <Content Include="Admin\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Admin\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Admin\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Admin\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Admin\vendor\chart.js\Chart.bundle.js" />
+    <Content Include="Admin\vendor\chart.js\Chart.bundle.min.js" />
+    <Content Include="Admin\vendor\chart.js\Chart.js" />
+    <Content Include="Admin\vendor\chart.js\Chart.min.js" />
+    <Content Include="Admin\vendor\datatables\dataTables.bootstrap4.css" />
+    <Content Include="Admin\vendor\datatables\dataTables.bootstrap4.js" />
+    <Content Include="Admin\vendor\datatables\dataTables.bootstrap4.min.css" />
+    <Content Include="Admin\vendor\datatables\dataTables.bootstrap4.min.js" />
+    <Content Include="Admin\vendor\datatables\jquery.dataTables.js" />
+    <Content Include="Admin\vendor\datatables\jquery.dataTables.min.js" />
+    <Content Include="Admin\vendor\fontawesome-free\attribution.js" />
+    <Content Include="Admin\vendor\fontawesome-free\css\all.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\all.min.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\brands.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\brands.min.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\fontawesome.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\regular.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\regular.min.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\solid.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\solid.min.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\v4-shims.css" />
+    <Content Include="Admin\vendor\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="Admin\vendor\fontawesome-free\LICENSE.txt" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="Admin\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="Admin\vendor\jquery-easing\jquery.easing.js" />
+    <Content Include="Admin\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Admin\vendor\jquery\jquery.js" />
+    <Content Include="Admin\vendor\jquery\jquery.min.js" />
+    <Content Include="Admin\vendor\jquery\jquery.slim.js" />
+    <Content Include="Admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\code.jquery.com_jquery-3.6.0.min.js" />
+    <Content Include="Content\jquery-1.7.2.min.js" />
+    <Content Include="Content\jquery-1.8.0.min.js" />
+    <Content Include="Content\jquery-3.6.4.min.js" />
+    <Content Include="Content\profilepage\bundles\amcharts4\animated.js" />
+    <Content Include="Content\profilepage\bundles\amcharts4\charts.js" />
+    <Content Include="Content\profilepage\bundles\amcharts4\core.js" />
+    <Content Include="Content\profilepage\bundles\amcharts4\maps.js" />
+    <Content Include="Content\profilepage\bundles\amcharts4\worldLow.js" />
+    <Content Include="Content\profilepage\bundles\apexcharts\apexcharts.min.js" />
+    <Content Include="Content\profilepage\bundles\chartjs\chart.min.js" />
+    <Content Include="Content\profilepage\bundles\echart\echarts.js" />
+    <Content Include="Content\profilepage\company-license\registration.sql" />
+    <Content Include="Content\profilepage\css\app.min.css" />
+    <Content Include="Content\profilepage\css\components.css" />
+    <Content Include="Content\profilepage\css\custom.css" />
+    <Content Include="Content\profilepage\css\MaterialIcons-Regular.html" />
+    <Content Include="Content\profilepage\css\style.css" />
+    <Content Include="Content\profilepage\fonts\fonts\webfonts\fa-brands-400.html" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-600.svg" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-700.svg" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-800.svg" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-regular.svg" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\profilepage\img\banner\1.png" />
+    <Content Include="Content\profilepage\img\banner\2.png" />
+    <Content Include="Content\profilepage\img\banner\3.png" />
+    <Content Include="Content\profilepage\img\banner\4.png" />
+    <Content Include="Content\profilepage\img\bnc_cube.png" />
+    <Content Include="Content\profilepage\img\favicon.ico" />
+    <Content Include="Content\profilepage\img\image-64.png" />
+    <Content Include="Content\profilepage\img\image-gallery\1.png" />
+    <Content Include="Content\profilepage\img\image-gallery\10.png" />
+    <Content Include="Content\profilepage\img\image-gallery\11.png" />
+    <Content Include="Content\profilepage\img\image-gallery\12.png" />
+    <Content Include="Content\profilepage\img\image-gallery\13.png" />
+    <Content Include="Content\profilepage\img\image-gallery\14.png" />
+    <Content Include="Content\profilepage\img\image-gallery\15.png" />
+    <Content Include="Content\profilepage\img\image-gallery\16.png" />
+    <Content Include="Content\profilepage\img\image-gallery\17.png" />
+    <Content Include="Content\profilepage\img\image-gallery\18.png" />
+    <Content Include="Content\profilepage\img\image-gallery\19.png" />
+    <Content Include="Content\profilepage\img\image-gallery\2.png" />
+    <Content Include="Content\profilepage\img\image-gallery\20.png" />
+    <Content Include="Content\profilepage\img\image-gallery\3.png" />
+    <Content Include="Content\profilepage\img\image-gallery\4.png" />
+    <Content Include="Content\profilepage\img\image-gallery\5.png" />
+    <Content Include="Content\profilepage\img\image-gallery\6.png" />
+    <Content Include="Content\profilepage\img\image-gallery\7.png" />
+    <Content Include="Content\profilepage\img\image-gallery\8.png" />
+    <Content Include="Content\profilepage\img\image-gallery\9.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-1.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-10.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-11.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-12.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-13.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-14.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-15.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-16.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-17.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-18.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-19.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-2.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-20.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-3.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-4.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-5.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-6.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-7.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-8.png" />
+    <Content Include="Content\profilepage\img\image-gallery\thumb\thumb-9.png" />
+    <Content Include="Content\profilepage\img\loading.gif" />
+    <Content Include="Content\profilepage\img\login-.jpg" />
+    <Content Include="Content\profilepage\img\logo.png" />
+    <Content Include="Content\profilepage\img\logo\bnc cube.png" />
+    <Content Include="Content\profilepage\img\logo\bncfnl.png" />
+    <Content Include="Content\profilepage\img\logo\smartx.png" />
+    <Content Include="Content\profilepage\img\posts\post11.png" />
+    <Content Include="Content\profilepage\img\posts\post12.png" />
+    <Content Include="Content\profilepage\img\posts\post13.png" />
+    <Content Include="Content\profilepage\img\posts\post4.png" />
+    <Content Include="Content\profilepage\img\posts\post5.png" />
+    <Content Include="Content\profilepage\img\posts\post6.png" />
+    <Content Include="Content\profilepage\img\posts\post7.png" />
+    <Content Include="Content\profilepage\img\posts\post8.png" />
+    <Content Include="Content\profilepage\img\posts\post9.png" />
+    <Content Include="Content\profilepage\img\preloader.gif" />
+    <Content Include="Content\profilepage\img\products\product-1.png" />
+    <Content Include="Content\profilepage\img\products\product-2.png" />
+    <Content Include="Content\profilepage\img\products\product-3.png" />
+    <Content Include="Content\profilepage\img\products\product-4.png" />
+    <Content Include="Content\profilepage\img\products\product-5.png" />
+    <Content Include="Content\profilepage\img\smart x erp.png" />
+    <Content Include="Content\profilepage\img\spinner-white.svg" />
+    <Content Include="Content\profilepage\img\spinner.svg" />
+    <Content Include="Content\profilepage\img\typing.svg" />
+    <Content Include="Content\profilepage\img\user.png" />
+    <Content Include="Content\profilepage\img\users\sarim.jpeg" />
+    <Content Include="Content\profilepage\img\users\user-1.png" />
+    <Content Include="Content\profilepage\img\users\user-10.png" />
+    <Content Include="Content\profilepage\img\users\user-2.png" />
+    <Content Include="Content\profilepage\img\users\user-3.png" />
+    <Content Include="Content\profilepage\img\users\user-4.png" />
+    <Content Include="Content\profilepage\img\users\user-5.png" />
+    <Content Include="Content\profilepage\img\users\user-6.png" />
+    <Content Include="Content\profilepage\img\users\user-7.png" />
+    <Content Include="Content\profilepage\img\users\user-8.png" />
+    <Content Include="Content\profilepage\img\users\user-9.png" />
+    <Content Include="Content\profilepage\js\app.min.js" />
+    <Content Include="Content\profilepage\js\jsbarcode.all.min.js" />
+    <Content Include="Content\profilepage\js\page\auth-register.js" />
+    <Content Include="Content\profilepage\js\page\calendar.js" />
+    <Content Include="Content\profilepage\js\page\contact.js" />
+    <Content Include="Content\profilepage\js\page\index.js" />
+    <Content Include="Content\profilepage\js\page\Pos.js" />
+    <Content Include="Content\profilepage\js\scripts.js" />
+    <Content Include="Content\registerform\css\montserrat-font.css" />
+    <Content Include="Content\registerform\css\style.css" />
+    <Content Include="Content\registerform\fonts\material-design-iconic-font\css\material-design-iconic-font.css" />
+    <Content Include="Content\registerform\fonts\material-design-iconic-font\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\registerform\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\registerform\fonts\Montserrat\OFL.txt" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+    <Content Include="Web\css\animate.css" />
+    <Content Include="Web\css\bootstrap.min.css" />
+    <Content Include="Web\css\custom.css" />
+    <Content Include="Web\css\flashy.min.css" />
+    <Content Include="Web\css\flaticon.css" />
+    <Content Include="Web\css\font-awesome.min.css" />
+    <Content Include="Web\css\form\index.html" />
+    <Content Include="Web\css\form\style.css" />
+    <Content Include="Web\css\magnific-popup.css" />
+    <Content Include="Web\css\owl.carousel.min.css" />
+    <Content Include="Web\css\pogo-slider.min.css" />
+    <Content Include="Web\css\responsive.css" />
+    <Content Include="Web\css\responsiveslides.css" />
+    <Content Include="Web\css\style.css" />
+    <Content Include="Web\css\timeline.css" />
+    <Content Include="Web\fonts\Flaticon.svg" />
+    <Content Include="Web\fonts\fontawesome-webfont.svg" />
+    <Content Include="Web\images\about-img-01.jpg" />
+    <Content Include="Web\images\about-img-02.jpg" />
+    <Content Include="Web\images\about-img-03.jpg" />
+    <Content Include="Web\images\apple-touch-icon.png" />
+    <Content Include="Web\images\blog-img-01.jpg" />
+    <Content Include="Web\images\blog-img-02.jpg" />
+    <Content Include="Web\images\blog-img-03.jpg" />
+    <Content Include="Web\images\favicon.ico" />
+    <Content Include="Web\images\footer-bg.jpg" />
+    <Content Include="Web\images\gallery-01.jpg" />
+    <Content Include="Web\images\gallery-02.jpg" />
+    <Content Include="Web\images\gallery-03.jpg" />
+    <Content Include="Web\images\gallery-04.jpg" />
+    <Content Include="Web\images\gallery-05.jpg" />
+    <Content Include="Web\images\gallery-06.jpg" />
+    <Content Include="Web\images\gallery-07.jpg" />
+    <Content Include="Web\images\gallery-08.jpg" />
+    <Content Include="Web\images\img-1.jpg" />
+    <Content Include="Web\images\img-2.jpg" />
+    <Content Include="Web\images\img-3.jpg" />
+    <Content Include="Web\images\logo.png" />
+    <Content Include="Web\images\menu-arrow.png" />
+    <Content Include="Web\images\preloader.gif" />
+    <Content Include="Web\images\ptn-bg.jpg" />
+    <Content Include="Web\images\slider-01.jpg" />
+    <Content Include="Web\images\slider-02.jpg" />
+    <Content Include="Web\images\slider-03.jpg" />
+    <Content Include="Web\images\tag-line.png" />
+    <Content Include="Web\js\bootstrap.min.js" />
+    <Content Include="Web\js\contact-form-script.js" />
+    <Content Include="Web\js\custom.js" />
+    <Content Include="Web\js\form-validator.min.js" />
+    <Content Include="Web\js\images-loded.min.js" />
+    <Content Include="Web\js\isotope.min.js" />
+    <Content Include="Web\js\jquery-1.11.1.min.js" />
+    <Content Include="Web\js\jquery-1.12.4.js" />
+    <Content Include="Web\js\jquery.magnific-popup.min.js" />
+    <Content Include="Web\js\jquery.min.js" />
+    <Content Include="Web\js\jquery.pogo-slider.min.js" />
+    <Content Include="Web\js\main.js" />
+    <Content Include="Web\js\owl.carousel.min.js" />
+    <Content Include="Web\js\popper.min.js" />
+    <Content Include="Web\js\responsiveslides.min.js" />
+    <Content Include="Web\js\slider-index.js" />
+    <Content Include="Web\js\smoothscroll.js" />
+    <Content Include="Web\js\timeLine.min.js" />
+    <Content Include="Web\js\TweenMax.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PrivacyController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_address.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_appointment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_contact.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_doctors.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_gallery.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_hospitalDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_queries.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_replies.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_services.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_slider.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_subscriptions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_users.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Admin\scss\navs\_global.scss" />
+    <Content Include="Admin\scss\navs\_sidebar.scss" />
+    <Content Include="Admin\scss\navs\_topbar.scss" />
+    <Content Include="Admin\scss\sb-admin-2.scss" />
+    <Content Include="Admin\scss\utilities\_animation.scss" />
+    <Content Include="Admin\scss\utilities\_background.scss" />
+    <Content Include="Admin\scss\utilities\_border.scss" />
+    <Content Include="Admin\scss\utilities\_display.scss" />
+    <Content Include="Admin\scss\utilities\_progress.scss" />
+    <Content Include="Admin\scss\utilities\_rotate.scss" />
+    <Content Include="Admin\scss\utilities\_text.scss" />
+    <Content Include="Admin\scss\_buttons.scss" />
+    <Content Include="Admin\scss\_cards.scss" />
+    <Content Include="Admin\scss\_charts.scss" />
+    <Content Include="Admin\scss\_dropdowns.scss" />
+    <Content Include="Admin\scss\_error.scss" />
+    <Content Include="Admin\scss\_footer.scss" />
+    <Content Include="Admin\scss\_global.scss" />
+    <Content Include="Admin\scss\_login.scss" />
+    <Content Include="Admin\scss\_mixins.scss" />
+    <Content Include="Admin\scss\_navs.scss" />
+    <Content Include="Admin\scss\_utilities.scss" />
+    <Content Include="Admin\scss\_variables.scss" />
+    <Content Include="Admin\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Admin\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Admin\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Admin\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="Admin\vendor\jquery\jquery.min.map" />
+    <Content Include="Admin\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Admin\LoginForm\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Admin\LoginForm\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Admin\LoginForm\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Admin\LoginForm\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\profilepage\company-license\config.NFS13Save" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-600.eot" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-600.ttf" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-600.woff" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-600.woff2" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-600d41d.eot" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-700.eot" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-700.ttf" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-700.woff" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-700.woff2" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-700d41d.eot" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-800.eot" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-800.ttf" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-800.woff" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-800.woff2" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-800d41d.eot" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-regular.eot" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-regular.ttf" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-regular.woff" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-regular.woff2" />
+    <Content Include="Content\profilepage\fonts\nunito-v9-latin-regulard41d.eot" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-brands-400d41d.eot" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-regular-400d41d.eot" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\profilepage\fonts\webfonts\fa-solid-900d41d.eot" />
+    <Content Include="Content\registerform\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\registerform\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\registerform\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\registerform\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-Black.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-Light.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Content\registerform\fonts\Montserrat\Montserrat-ThinItalic.ttf" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\HeaderFooter.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Slider.cshtml" />
+    <Content Include="Views\Account\Services.cshtml" />
+    <Content Include="Views\Account\Appointment.cshtml" />
+    <Content Include="Views\Account\Gallery.cshtml" />
+    <Content Include="Views\Account\Doctors.cshtml" />
+    <Content Include="Views\Account\Contact.cshtml" />
+    <Content Include="Views\Account\Address.cshtml" />
+    <Content Include="Views\Account\Subscription.cshtml" />
+    <Content Include="Views\Account\AddSlider.cshtml" />
+    <Content Include="Views\Account\AddServices.cshtml" />
+    <Content Include="Views\Account\AddGallery.cshtml" />
+    <Content Include="Views\Account\AddDoctors.cshtml" />
+    <Content Include="Views\Account\AddAddress.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\UpdateSlider.cshtml" />
+    <Content Include="Views\Account\UpdateServices.cshtml" />
+    <Content Include="Views\Account\UpdateGallery.cshtml" />
+    <Content Include="Views\Account\UpdateDoctors.cshtml" />
+    <Content Include="Views\Account\UpdateAddress.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\FrontHeaderFooter.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Home\Appointment.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Home\Doctor.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Account\Users.cshtml" />
+    <Content Include="Views\Account\UpdateProfile.cshtml" />
+    <Content Include="Views\Home\UserProfile.cshtml" />
+    <Content Include="Views\Home\FindData.cshtml" />
+    <Content Include="Views\Home\Users.cshtml" />
+    <Content Include="Views\Home\Forum.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Web\fonts\Flaticon.eot" />
+    <Content Include="Web\fonts\Flaticon.ttf" />
+    <Content Include="Web\fonts\Flaticon.woff" />
+    <Content Include="Web\fonts\fontawesome-webfont.eot" />
+    <Content Include="Web\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Web\fonts\fontawesome-webfont.woff" />
+    <Content Include="Web\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Web\fonts\FontAwesome.otf" />
+    <Content Include="Web\css\bootstrap.min.css.map" />
+    <Content Include="Web\js\popper.min.js.map" />
+    <Content Include="Web\js\bootstrap.min.js.map" />
+    <Content Include="Web\css\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AdminImages\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="DoctorImages\" />
+    <Folder Include="GalleryImages\" />
+    <Folder Include="Models\" />
+    <Folder Include="SliderImages\" />
+    <Folder Include="UserImages\" />
+    <Folder Include="Views\Header\" />
+    <Folder Include="Views\Privacy\" />
+    <Folder Include="Views\Search\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54384</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44327/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

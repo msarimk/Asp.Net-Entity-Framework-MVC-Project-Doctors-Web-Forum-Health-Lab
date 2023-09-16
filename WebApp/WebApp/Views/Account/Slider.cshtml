@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebApp.tbl_slider>
+
+@{
+    ViewBag.Title = "Slider";
+    Layout = "~/Views/HeaderFooter.cshtml";
+}
+
+<div class="container">
+    <h2>Slider</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "AddSlider")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titles)
+            </th>
+            <th>
+                Sub Titles
+            </th>
+            <th>
+                Button Titles
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Images)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titles)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sub_Titles)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Button_Titles)
+                </td>
+                <td>
+                    <img width="50px" src="~/SliderImages/@Html.DisplayFor(modelItem => item.Images)" />
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UpdateSlider", new { id = item.id }) |
+                    
+                    @Html.ActionLink("Delete", "DeleteSlider", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

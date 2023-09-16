@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebApp.tbl_doctors>
+
+@{
+    ViewBag.Title = "Doctors";
+    Layout = "~/Views/HeaderFooter.cshtml";
+}
+
+<div class="container">
+    <h2>Doctors</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "AddDoctors")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profile)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Degree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timing)
+                </td>
+                <td>
+                    <img width="50px" src="~/DoctorImages/@Html.DisplayFor(modelItem => item.Profile)"/>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UpdateDoctors", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "DeleteDoctors", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

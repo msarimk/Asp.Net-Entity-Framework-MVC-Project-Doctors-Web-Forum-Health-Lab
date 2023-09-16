@@ -1,0 +1,343 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Site Metas -->
+    @if (Session["username"] != null)
+    {
+        <title>Health Lab | @Session["username"]</title>
+    }
+    else
+    {
+        <title>Health Lab</title>
+    }
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="~/Web/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Web/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Web/css/bootstrap.css.map">
+    <link rel="stylesheet" href="~/Web/css/bootstrap.min.css.map" />
+    <!-- Pogo Slider CSS -->
+    <link rel="stylesheet" href="~/Web/css/pogo-slider.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="~/Web/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/Web/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Web/css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.js"></script>
+    <script src="~/Content/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Prevent injection of the specific script
+            $('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert5.js"]').remove();
+            var injectedScript = document.querySelector('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert5.js"]');
+
+            if (injectedScript) {
+                injectedScript.parentNode.removeChild(injectedScript);
+            }
+        });
+    </script>
+</head>
+<body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+    <style>
+        .dropdown-toggle::after {
+            margin: 0px !important;
+        }
+
+        .dropdown-menu {
+            background-color: #12557f;
+        }
+
+        .dp-down:hover {
+            color: #6777ef !important;
+        }
+
+        .u-name {
+            cursor: pointer !important;
+        }
+
+        .hv-none:hover {
+            background-color: transparent !important
+        }
+    </style>
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="~/Web/images/preloader.gif" alt="" />
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <!-- Start top bar -->
+    <div style=" position: relative; top: 0px; left: 0px; background-color: #00cb86; z-index: 999;" class="container-fluid d-flex justify-content-between">
+        <div class="d-flex">
+            @if (ViewBag.Sum != null)
+            {
+                <li>
+                    <a class="text-white">
+                        <i class="fa fa-user pr-2" aria-hidden="true"></i>
+                        <span style="font-size:16px !important">Logged</span>
+                        <span style="font-size:20px !important">@ViewBag.Sum</span>
+                    </a>
+                </li>
+            }
+            @if (Session["usertype"] != null)
+            {
+                <a style="padding-left:5px;padding-top:4.5px;" class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @if (ViewBag.Sum == null)
+                    {
+                        <i style="color:white" class="fa fa-user" aria-hidden="true"></i>
+                    }
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dp-down">
+                        <a style="border:none !important;" class="dropdown-item d-flex align-items-center dp-down hv-none">
+                            <img width="40px" height="40px" class=" rounded-circle" src="~/UserImages/@Session["userimg"]" alt="">
+                            <p style="font-size:15px !important;" class="m-0 pl-2 text-white u-name">@Session["username"]</p>
+                        </a>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <li class="w-100">
+                        <a style="font-size: 17px !important; border: none !important" href="~/Home/UserProfile/@Session["userid"]" class="dropdown-item text-white dp-down">Profile</a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="w-100">
+                        <a style="font-size: 17px !important; border: none !important;cursor:pointer !important;" class="dropdown-item text-white dp-down" id="logout">Logout</a>
+                    </li>
+                </ul>
+            }
+        </div>
+        <script>
+            $("document").ready(function () {
+                $('#logout').click(function () {
+                    Swal.fire({
+                        icon: 'info', // Use the 'info' icon for the user
+                        title: 'Logout Confirmation',
+                        text: 'Are you sure you want to logout?',
+                        showCancelButton: true,
+                        confirmButtonText: 'Logout',
+                        cancelButtonText: 'Cancel',
+                    }).then(function (result) {
+                        if (result.isConfirmed) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/Home/LogOut/@Session["userid"]",
+                                    success: function (data) {
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Success!',
+                                            text: 'User Logged Out Successfully.',
+                                        }).then(function () {
+                                            window.location.reload(); // Reload the page after the user confirms the success alert
+                                        });
+                                    }
+                                });
+                        }
+                        else {
+                            return false;
+                        }
+                    });
+                })
+            })
+        </script>
+        @if (ViewBag.Sum != null)
+        {
+            <li>
+                <a class="text-white">
+                    <i class="fa fa-users pr-2" aria-hidden="true"></i>
+                    <span style="font-size:16px !important">Registered</span>
+                    <span style="font-size:20px !important">@ViewBag.Count </span>
+                </a>
+            </li>
+        }
+    </div>
+    <div class="main-top pt-2 pb-2 d-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div style="width:100%;height:100%;" class="d-flex align-items-center justify-content-center ">
+                        <div class="left-top ">
+                            @if (Session["usertype"] == null)
+                            {
+                                <a class="new-btn-d br-2" href="~/Home/Login"><span>Login</span></a>
+                                <a class="new-btn-d br-2" href="~/Home/register"><span>Register</span></a>
+                            }
+                            <div class="mail-b"><a href="mailto:msarim49@gmail.com"><i class="fa fa-envelope-o pr-1" aria-hidden="true"></i> msarim49@gmail.com</a></div>
+                        </div>
+                    </div>
+
+                </div>
+<style>
+    @@media (max-width: 575.98px) {
+	    .myinput {
+		    margin-top: 8px !important;
+	    }
+    }
+</style>
+                    <div class="col-sm-6 myinput">
+                        <div style="width:100%;height:100%;" class="d-flex align-items-center  justify-content-center float-md-right">
+                            <form class="navbar-search">
+                                <div class="input-group ">
+                                    <input id="searchdata" type="text" class="form-control bg-light in" placeholder="Find Users"
+                                           aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
+                                    <ul class="dropdown-menu mt-1" style="display:none !important;" id="result">
+                                    </ul>
+                                    <p id="notfound" class="dropdown-menu mt-1 text-white text-center">
+
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                        <style>
+                            .res:hover {
+                                color: black !important;
+                            }
+
+                            .in {
+                                border-top-right-radius: 5px !important;
+                                border-bottom-right-radius: 5px !important;
+                            }
+                        </style>
+                        <script>
+                            $("document").ready(function () {
+                                $('#searchdata').keyup(function () {
+                                    var input = $('#searchdata').val();
+
+                                    if (input != "") {
+                                        $("#result").show();
+
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/Home/FindData",
+                                            data: { searchdata: input },
+                                            datatype: "html",
+                                            success: function (data) {
+
+                                                if (data == 0) {
+                                                    console.log(data);
+                                                    $("#result").css('display', 'none');
+                                                    $("#notfound").css('display', 'block');
+                                                    $('#notfound').html('User Not Found');
+                                                }
+                                                else {
+                                                    console.log(data)
+                                                    $("#notfound").css('display', 'none');
+                                                    $("#result").css('display', 'block');
+                                                    $('#result').html(data);
+                                                }
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        $("#result").css('display', 'none');
+                                        $('#notfound').css('display', 'none');
+                                    }
+                                    $(window).on('beforeunload', function () {
+                                        input = $('#searchdata').val('');
+                                        $("#result").css('display', 'none');
+                                        $("#notfound").css('display', 'none');
+                                    })
+                                })
+                            })
+                        </script>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!-- End top bar -->
+    <!-- Start header -->
+    <header class="top-header">
+        <nav class="navbar header-nav navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="~/Home/Index"><img src="~/Web/images/logo.png" alt="image"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                    <ul class="navbar-nav nv">
+                        <li><a class="nav-link" href="~/Home">Home</a></li>
+                        <li><a class="nav-link" href="~/Home/Services">Services</a></li>
+                        <li><a class="nav-link" href="~/Home/Appointment">Appointment</a></li>
+                        <li><a class="nav-link" href="~/Home/Gallery">Gallery</a></li>
+                        <li><a class="nav-link" href="~/Home/Doctor">Doctor</a></li>
+                        <li><a class="nav-link" href="~/Home/Contact">Contact</a></li>
+                        @if (Session["usertype"] != null)
+                        {
+                            <li><a class="nav-link" href="~/Home/Forum">Web Forum</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End header -->
+    @RenderBody()
+    <!-- Start Subscribe -->
+    <div class="subscribe-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="subscribe-inner text-center clearfix">
+                        <h2>Subscribe</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <form action="~/Home/Subscription" method="post">
+                            <div class="form-group">
+                                <input class="form-control-1" id="email-1" name="subemail" placeholder="Email Address" required="" type="text">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" name="subsubmit" class="new-btn-d br-2">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Subscribe -->
+    <!-- Start Footer -->
+    <footer class="footer-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2023 <a href="#">Health Lab</a> Design & Developed By : <a href="~/Home/Index">Sarim</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="~/Web/js/popper.min.js"></script>
+    <script src="~/Web/js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="~/Web/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Web/js/jquery.pogo-slider.min.js"></script>
+    <script src="~/Web/js/slider-index.js"></script>
+    <script src="~/Web/js/smoothscroll.js"></script>
+    <script src="~/Web/js/TweenMax.min.js"></script>
+    <script src="~/Web/js/main.js"></script>
+    <script src="~/Web/js/owl.carousel.min.js"></script>
+    <script src="~/Web/js/form-validator.min.js"></script>
+    <script src="~/Web/js/contact-form-script.js"></script>
+    <script src="~/Web/js/isotope.min.js"></script>
+    <script src="~/Web/js/images-loded.min.js"></script>
+    <script src="~/Web/js/custom.js"></script>
+</body>
+</html>

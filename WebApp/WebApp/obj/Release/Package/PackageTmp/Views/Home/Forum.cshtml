@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Forum";
+    Layout = "~/Views/FrontHeaderFooter.cshtml";
+}
+<style>
+    .scroll-wrap {
+        max-height: 120px; /* Set the maximum height for the scrollable area */
+        overflow-y: auto; /* Enable vertical scrolling */
+        white-space: nowrap; /* Prevent line breaks within the content */
+    }
+</style>
+<div class="container mt-3 mb-5">
+    <div class="row mt-5">
+        <div class="col-lg-12">
+            <div class="title-box mt-4">
+                <h2>Queries</h2>
+            </div>
+        </div>
+    </div>
+    <div class="btn-group">
+        <button style="background-color: #00cb86 !important;" class="btn text-white btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Add Query
+        </button>
+        <div style="width:270px !important;padding:8px !important" class="dropdown-menu bg-white">
+            <form id="query_form" method="post" >
+                <input type="hidden" id="userimg" name="userimg" value="@Session["userimg"]" />
+                <input type="hidden" id="name" name="name" value="@Session["username"]" />
+                <textarea name="query" id="query" class="w-100 form-control" cols="3" rows="5" placeholder="Enter Your Query Here"></textarea>
+                <div style="padding-top:8px !important;" class="d-flex justify-content-end">
+                    <button type="submit" id="submit_query" style="background-color: #12557f;" class="btn text-white">Submit </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+                        $("document").ready(function () {
+                            $('#submit_query').click(function () {
+                                var query_check = $('#query').val();
+                                if (query_check == "") {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error!',
+                                        text: 'An Query Box Cannot Be Empty',
+                                    });
+                                    return false;
+                                }
+                                else { 
+                                    $('#query_form').submit(function (event) {
+                                        event.preventDefault();
+                                        var formData = $(this).serialize();
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/Home/AddQuery",
+                                                data: formData,
+                                                success: function (data) {
+                                                    Swal.fire({
+                                                        icon: 'success',
+                                                        title: 'Success!',
+                                                        text: 'Query Has Been Submitted Successfully.',
+                                                    }).then(function () {
+                                                        window.location.reload(); // Reload the page after the user confirms the success alert
+                                                    });
+                                                }
+                                            });
+                                    });
+                                }
+                            })
+                        })
+    </script>
+    <!-- Query and Reply Section -->
+    @foreach (var item in ViewBag.Queries)
+    {
+        <div class="row mt-4 ">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div style="background-color: #00cb86 !important;" class="card-header  text-white">
+                        <img width="30px" height="30px" class=" rounded-circle" src="~/UserImages/@item.user_image" alt=""> @item.name
+                    </div>
+                    <div class="card-body">
+                        @item.queries
+                    </div>
+                    <div class="accordion" id="accordionExample">
+                        <div style="background-color: #12557f; padding: .75rem 1.25rem;" class="card-header" id="headingOne">
+
+                            <button class="btn btn-link text-white p-0 collapsed" type="button" data-toggle="collapse" data-target="#collapseOne_@item.id" aria-expanded="true" aria-controls="collapseOne_@item.id">
+                                Replies <i class=" ml-1 fa fa-hand-o-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div id="collapseOne_@item.id" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body scroll-wrap">
+                                @foreach (var reply in ViewBag.Replies)
+                                {
+                                    if (item.id == reply.q_id)
+                                    {
+
+                                        <p class="m-0"> <img width="30px" height="30px" class=" rounded-circle" src="~/UserImages/@reply.user_image" alt="">  @reply.name : @reply.replies</p>
+                                        <hr class="mt-1 mb-2" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background-color: #00cb86 !important;" class="card-header ">
+                        <form class="d-flex" action="~/Home/AddReply" method="post">
+                            <input type="hidden" name="userimg" value="@Session["userimg"]" />
+                            <input type="hidden" name="q_id" value="@item.id" />
+                            <input type="hidden" name="reply_name" value="@Session["username"]" />
+                            <input type="text" required class="form-control" name="replies" placeholder="Enter Reply" />
+                            <button style="background-color: #12557f;" class="btn text-white ml-2" type="submit"><i class="fa fa-comments" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

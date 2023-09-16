@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="225" />
+    <Property Name="Email" Type="varchar" MaxLength="225" />
+    <Property Name="Phone" Type="varchar" MaxLength="225" />
+    <Property Name="Gender" Type="varchar" MaxLength="225" />
+    <Property Name="User_Type" Type="varchar" MaxLength="225" />
+    <Property Name="User_Image" Type="varchar" MaxLength="225" />
+    <Property Name="Password" Type="varchar" MaxLength="225" />
+    <Property Name="DOB" Type="varchar" MaxLength="225" />
+    <Property Name="education" Type="varchar" MaxLength="225" />
+    <Property Name="bio" Type="varchar" MaxLength="225" />
+    <Property Name="experience" Type="varchar" MaxLength="225" />
+    <Property Name="location" Type="varchar" MaxLength="225" />
+    <Property Name="title" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_address">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Icons" Type="varchar" MaxLength="225" />
+    <Property Name="Titles" Type="varchar" MaxLength="225" />
+    <Property Name="Address" Type="varchar" MaxLength="225" />
+    <Property Name="AnchorLinks" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_appointment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="225" />
+    <Property Name="Email" Type="varchar" MaxLength="225" />
+    <Property Name="Date" Type="varchar" MaxLength="225" />
+    <Property Name="Time" Type="varchar" MaxLength="225" />
+    <Property Name="Department" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="225" />
+    <Property Name="Email" Type="varchar" MaxLength="225" />
+    <Property Name="Phone" Type="varchar" MaxLength="225" />
+    <Property Name="Message" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_doctors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="225" />
+    <Property Name="Title" Type="varchar" MaxLength="225" />
+    <Property Name="Degree" Type="varchar" MaxLength="225" />
+    <Property Name="Timing" Type="varchar" MaxLength="225" />
+    <Property Name="Profile" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_gallery">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titles" Type="varchar" MaxLength="225" />
+    <Property Name="Images" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_hospitalDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_queries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="225" />
+    <Property Name="queries" Type="varchar" MaxLength="1000" />
+    <Property Name="user_image" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_replies">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="q_id" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="225" />
+    <Property Name="replies" Type="varchar" MaxLength="1000" />
+    <Property Name="user_image" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_services">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titles" Type="varchar" MaxLength="225" />
+    <Property Name="Descriptions" Type="varchar" MaxLength="225" />
+    <Property Name="Icons" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_slider">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titles" Type="varchar" MaxLength="225" />
+    <Property Name="Sub_Titles" Type="varchar" MaxLength="225" />
+    <Property Name="Button_Titles" Type="varchar" MaxLength="225" />
+    <Property Name="Images" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_subscriptions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="225" />
+    <Property Name="Email" Type="varchar" MaxLength="225" />
+    <Property Name="Phone" Type="varchar" MaxLength="225" />
+    <Property Name="Gender" Type="varchar" MaxLength="225" />
+    <Property Name="User_Type" Type="varchar" MaxLength="225" />
+    <Property Name="User_Image" Type="varchar" MaxLength="225" />
+    <Property Name="Password" Type="varchar" MaxLength="225" />
+    <Property Name="userCount" Type="int" />
+    <Property Name="DOB" Type="varchar" MaxLength="225" />
+    <Property Name="education" Type="varchar" MaxLength="225" />
+    <Property Name="bio" Type="varchar" MaxLength="225" />
+    <Property Name="experience" Type="varchar" MaxLength="225" />
+    <Property Name="location" Type="varchar" MaxLength="225" />
+    <Property Name="title" Type="varchar" MaxLength="225" />
+    <Property Name="isPublicProfile" Type="int" />
+  </EntityType>
+  <Association Name="FK_tbl_replies_tbl_queries1">
+    <End Role="tbl_queries" Type="Self.tbl_queries" Multiplicity="0..1" />
+    <End Role="tbl_replies" Type="Self.tbl_replies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_queries">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_replies">
+        <PropertyRef Name="q_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="hospitalModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_address" EntityType="Self.tbl_address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_appointment" EntityType="Self.tbl_appointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_contact" EntityType="Self.tbl_contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_doctors" EntityType="Self.tbl_doctors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_gallery" EntityType="Self.tbl_gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_hospitalDetail" EntityType="Self.tbl_hospitalDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_queries" EntityType="Self.tbl_queries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_replies" EntityType="Self.tbl_replies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_services" EntityType="Self.tbl_services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_slider" EntityType="Self.tbl_slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_subscriptions" EntityType="Self.tbl_subscriptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_users" EntityType="Self.tbl_users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_replies_tbl_queries1" Association="Self.FK_tbl_replies_tbl_queries1">
+      <End Role="tbl_queries" EntitySet="tbl_queries" />
+      <End Role="tbl_replies" EntitySet="tbl_replies" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,35 @@
+﻿@model WebApp.tbl_address
+@{
+    ViewBag.Title = "UpdateAddress";
+    Layout = "~/Views/HeaderFooter.cshtml";
+}
+<!-- Begin Page Content -->
+<div class="container">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add Address</h1>
+    </div>
+
+    <form action="~/Account/UpdateAddress" method="post" enctype="multipart/form-data">
+        <div class="form-group col-xxl-5 col-xl-5 col-lg-5 col-md-5   mx-auto">
+
+            <input type="hidden" name="id" value="@Model.id" />
+
+            <label for="exampleInputPassword1" class="">Icon</label>
+            <input name="icon" value="@Model.Icons" type="text" class="form-control" placeholder="Insert Icon">
+
+
+            <label for="exampleInputEmail1" class="mt-3">Title</label>
+            <input name="title" value="@Model.Titles" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter title">
+
+
+
+            <label for="exampleInputPassword1" class="mt-3">Address</label>
+            <input name="address" value="@Model.Address" type="text" class="form-control" placeholder="Enter Address">
+
+            <button type="submit" name="submit" class="btn btn-primary mt-5">Submit</button>
+
+        </div>
+    </form>
+
+</div>
+<!-- End of Main Content -->

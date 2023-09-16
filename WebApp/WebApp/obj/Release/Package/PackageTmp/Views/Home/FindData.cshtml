@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebApp.tbl_users>
+
+@{
+    Layout = null;
+}
+<script src="~/Content/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Prevent injection of the specific script
+        $('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert5.js"]').remove();
+        var injectedScript = document.querySelector('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert5.js"]');
+
+        if (injectedScript) {
+            injectedScript.parentNode.removeChild(injectedScript);
+        }
+    });
+</script>
+
+@foreach (var data in Model)
+{
+
+
+    <li>
+        <a href="~/Home/UserProfile/@data.id" class="w-100 text-white res dropdown-item">
+            <img width="40px" height="40px" class=" rounded-circle" src="~/UserImages/@data.User_Image" alt="">
+            @data.Name
+        </a>
+    </li>
+}
+
+

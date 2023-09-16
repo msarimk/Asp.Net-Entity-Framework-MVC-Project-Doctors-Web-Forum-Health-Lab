@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "AddSlider";
+    Layout = "~/Views/HeaderFooter.cshtml";
+}
+<!-- Begin Page Content -->
+<div class="container">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add Slider Images</h1>
+    </div>
+
+    <form action="~/Account/AddSlider" method="post"  enctype="multipart/form-data">
+        <div class="form-group col-xxl-5 col-xl-5 col-lg-5 col-md-5   mx-auto">
+
+
+            <label for="exampleInputEmail1">Slider Title</label>
+            <input name="title" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter title">
+
+
+
+            <label for="exampleInputPassword1" class="mt-3">Slider Sub-Title</label>
+            <input name="sub-title" type="text" class="form-control" placeholder="Enter Sub-title">
+
+            <label for="exampleInputPassword1" class="mt-3">Button Title</label>
+            <input name="btn-title" type="text" class="form-control" placeholder="Enter button title">
+
+
+
+            <label for="exampleInputPassword1" class="mt-3">Slider Images</label>
+            <input name="sliderimg" type="file" class="form-control">
+
+
+            <button type="submit" name="submit" class="btn btn-primary mt-5">Submit</button>
+
+        </div>
+    </form>
+
+</div>
+<!-- End of Main Content -->

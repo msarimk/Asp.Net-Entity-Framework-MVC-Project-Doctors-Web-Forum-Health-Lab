@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebApp.tbl_slider>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/FrontHeaderFooter.cshtml";
+}
+<!-- Start Banner -->
+<div class="ulockd-home-slider">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="pogoSlider" id="js-main-slider">
+                <div class="pogoSlider-slide" data-transition="fade" data-duration="1500">
+                    <img width="100%" src="~/Web/images/slider-01.jpg" style="object-fit:cover;position:absolute" alt="slider image" />
+                    <div class="lbox-caption pogoSlider-slide-element">
+                        <div class="lbox-details">
+                            <h1>Welcome to Health Lab</h1>
+                            <p>Fusce convallis ante id purus sagittis malesuada. Sed erat ipsum </p>
+                            <a href="#" class="btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                @foreach (var data in Model)
+                {
+                    <div class="pogoSlider-slide" data-transition="fade" data-duration="1500">
+                        <img width="100%" src="~/SliderImages/@data.Images" style="object-fit:cover;position:absolute" alt="slider image" />
+                        <div class="lbox-caption pogoSlider-slide-element">
+                            <div class="lbox-details">
+                                <h1>@data.Titles</h1>
+                                <p>@data.Sub_Titles</p>
+                                <a href="#appointment" class="btn">@data.Button_Titles</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div><!-- .pogoSlider -->
+        </div>
+    </div>
+</div>
+<!-- End Banner -->
+<!-- Start About us -->
+<div id="about" class="about-box">
+    <div class="about-a1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-box">
+                        <h2>About Us</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row align-items-center about-main-info">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <h2> Welcome to Health Lab </h2>
+                            <p>Fusce convallis ante id purus sagittis malesuada. Sed erat ipsum, suscipit sit amet auctor quis, vehicula ut leo. Maecenas felis nulla, tincidunt ac blandit a, consectetur quis elit. Nulla ut magna eu purus cursus sagittis. Praesent fermentum tincidunt varius. Proin sit amet tempus magna. Fusce pellentesque vulputate urna. </p>
+                            <p>Fusce convallis ante id purus sagittis malesuada. Sed erat ipsum, suscipit sit amet auctor quis, vehicula ut leo. Maecenas felis nulla, tincidunt ac blandit a, consectetur quis elit. Nulla ut magna eu purus cursus sagittis. Praesent fermentum tincidunt varius. Proin sit amet tempus magna. Fusce pellentesque vulputate urna. </p>
+                            <a href="#" class="new-btn-d br-2">Read More</a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="about-m">
+                                <ul id="banner">
+                                    <li>
+                                        <img src="~/Web/images/about-img-01.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="~/Web/images/about-img-02.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="~/Web/images/about-img-03.jpg" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End About us -->

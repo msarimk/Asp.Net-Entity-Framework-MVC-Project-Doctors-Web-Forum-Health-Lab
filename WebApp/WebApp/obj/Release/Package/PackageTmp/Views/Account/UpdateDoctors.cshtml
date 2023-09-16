@@ -1,0 +1,41 @@
+﻿@model WebApp.tbl_doctors
+@{
+    ViewBag.Title = "UpdateDoctors";
+    Layout = "~/Views/HeaderFooter.cshtml";
+}
+<!-- Begin Page Content -->
+<div class="container">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add Doctor</h1>
+    </div>
+
+    <form action="~/Account/UpdateDoctors" method="post" enctype="multipart/form-data">
+        <div class="form-group col-xxl-5 col-xl-5 col-lg-5 col-md-5   mx-auto">
+
+            <input type="hidden" name="id" value="@Model.id" />
+
+            <label for="exampleInputEmail1">Name</label>
+            <input name="name" value="@Model.Name" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter name">
+
+
+            <label class="mt-3">Title</label>
+            <input name="title" value="@Model.Title" type="text" class="form-control" placeholder="Enter Title">
+
+            <label class="mt-3">Degree</label>
+            <input name="degree" value="@Model.Degree" type="text" class="form-control" placeholder="Enter Degree">
+
+            <label class="mt-3">Timing</label>
+            <input name="timing" value="@Model.Timing" type="text" class="form-control" placeholder="Enter Timings">
+
+            <label class="mt-3">Profile</label>
+            <input name="doctorimg" type="file" class="form-control">
+            <input type="hidden" name="doctorimg1" value="@Model.Profile" />
+
+
+            <button type="submit" name="submit" class="btn btn-primary mt-5">Submit</button>
+
+        </div>
+    </form>
+
+</div>
+<!-- End of Main Content -->
